@@ -5,19 +5,51 @@
     <title>Portfolioo</title>
 
     <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Wendy+One&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="container">
+<div id="pointer"></div>
+
+<div class="container" id="wrap">
     <div class="tetra-container">
         <div class="tetra">
-            <div class="side f1"></div>
-            <div class="side f2"></div>
+            <div class="side f1">
+                <div class="text">
+                    Hi,
+                    <br>
+                    <span class="big">I'm Faezeh</span>
+                    <br>
+                    Front-end
+                    <br>
+                    Developer
+                    <br>
+                    UI Designer
+                </div>
+            </div>
+            <div class="side f2">
+                <div class="text">
+                    I love creating beautiful, usable stuff
+                    & enjoy to learn through new challenges
+                </div>
+            </div>
             <div class="side f3"></div>
             <div class="side f4"></div>
         </div>
     </div>
 </div>
 
+<script>
+    let pointer = document.getElementById('pointer');
+    const onMouseMove = (e) =>{
+        pointer.style.left = Math.min(e.pageX, window.innerWidth) + 'px';
+        pointer.style.top = Math.min(e.pageY, window.innerHeight-50) + 'px';
+    };
+    document.addEventListener('mousemove', onMouseMove);
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="rotate.js"></script>
 </body>
 </html>
