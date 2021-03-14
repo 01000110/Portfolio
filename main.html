@@ -19,7 +19,7 @@
                 <div class="text">
                     Hi,
                     <br>
-                    <span class="big">I'm Faezeh</span>
+                    <span class="big">I'm <em>Faezeh</em></span>
                     <br>
                     Front-end
                     <br>
@@ -30,15 +30,24 @@
             </div>
             <div class="side f2">
                 <div class="text">
+                    get in touch!
+                </div>
+            </div>
+            <div class="side f3">
+                <div class="text">
                     I love creating beautiful, usable stuff
                     & enjoy to learn through new challenges
                 </div>
             </div>
-            <div class="side f3"></div>
             <div class="side f4"></div>
         </div>
     </div>
 </div>
+
+<div class="menu top">Contact</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="rotate.js"></script>
 
 <script>
     let pointer = document.getElementById('pointer');
@@ -48,8 +57,23 @@
     };
     document.addEventListener('mousemove', onMouseMove);
 </script>
+<script>
+    let menu = document.getElementsByClassName('menu');
+    let cursor = document.getElementById('pointer');
+    let item;
+    for (item in menu) {
+        menu[item].addEventListener('mouseover', function () {
+            cursor.classList.remove("pointerAnimated");
+            cursor.style.borderWidth = "30px";
+            cursor.style.borderRadius = "30px";
+        });
+        menu[item].addEventListener('mouseout', function () {
+            cursor.classList.add("pointerAnimated");
+            cursor.style.borderWidth = "15px";
+            cursor.style.borderRadius = "15px";
+        })
+    }
+</script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="rotate.js"></script>
 </body>
 </html>

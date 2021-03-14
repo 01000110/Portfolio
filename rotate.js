@@ -1,24 +1,3 @@
-// document.addEventListener("mousemove", function (event) {
-//     console.log('move');
-//
-//     const x = event.pageX;
-//     const y = event.pageY;
-//
-//     const midX = x - window.innerWidth / 2;
-//     const midY = x - window.innerHeight / 2;
-//
-//     const object = document.querySelector(".tetra")
-//
-//     // object.style.left = x + "px";
-//     // object.style.top = y + "px";
-//
-//     object.style.transform = "rotateX(" + midY*.5 + "deg) rotateY(" + midX*.5 + "deg)";
-// })
-//
-//
-
-
-
 // Global variable
 const defaultPerspective = '-150px';
 // Track the mouse movemont
@@ -42,7 +21,7 @@ function rotateTetra() {
     ) * speed;
     lastYDeg = lastYDeg + (getAngle(mouseY) - lastYDeg
     ) * speed;
-    let newStyle = `translateZ(${defaultPerspective}) rotateY(${lastXDeg}deg) rotateX(${lastYDeg}deg)`
+    let newStyle = `translateZ(${defaultPerspective}) rotateY(${lastXDeg}deg) rotateX(${lastYDeg*.7}deg)`
     $('.tetra').css('transform', newStyle);
 }
 // this function return the corresponding angle for an x value
