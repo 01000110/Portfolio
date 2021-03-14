@@ -8,14 +8,14 @@ body {
 #pointer {
     height: 0;
     width: 0;
-    background-color: forestgreen;
-    border: 15px forestgreen solid;
+    background-color: #663399;
+    border: 15px #663399 solid;
     border-radius: 15px;
     position: absolute;
     z-index: 1000;
     left: 50vw;
     top: 50vh;
-    mix-blend-mode: multiply;
+    mix-blend-mode: difference;
 }
 @keyframes pointerAnim {
     0%   {border-width: 30px; border-radius: 30px}
@@ -30,6 +30,7 @@ body {
 .container {
     display: flex;
     height: 100vh;
+    background-color: #FF6600;
 }
 
 .tetra-container {
@@ -59,20 +60,6 @@ body {
     background-color: rgba(255, 255, 255, .6);
     transform-origin: bottom;
 }
-/*@media screen and (max-width: 768px){*/
-/*    .tetra-container {*/
-/*        height: 20em;*/
-/*        width: 20em;*/
-/*    }*/
-/*    .tetra {*/
-/*        height: 20em;*/
-/*        width: 20em;*/
-/*    }*/
-/*    .side {*/
-/*        height: 20em;*/
-/*        width: 20em;*/
-/*    }*/
-/*}*/
 
 .f1 {
 }
@@ -112,6 +99,17 @@ body {
     word-break: break-all;
     text-align: center;
 }
+.f2 .text {
+    transform: rotate(180deg);
+    padding-top: 20%;
+
+}
+.f3 .text {
+    transform: rotate(-120deg);
+}
+.f4 .text {
+    transform: rotate(120deg);
+}
 .text .big
 {
     font-size: 3rem;
@@ -137,4 +135,17 @@ body {
 .menu.top {
     top: 0;
     left: 40vw;
+}
+.menu.left {
+    left: 7vw;
+    top: 40vh;
+    transform: rotate(-90deg);
+}
+.menu.right {
+    right: 10vw;
+    top: 40vh;
+    transform: rotate(90deg);
+}
+.menu.bottom {
+    bottom: 0;
 }
