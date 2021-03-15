@@ -7,6 +7,8 @@
     <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Wendy+One&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/10f7291bd9.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -28,6 +30,7 @@
                     UI Designer
                 </div>
             </div>
+<!--            <div class="side f2+"></div>-->
             <div class="side f2">
                 <div class="text">
                     <span class="big">
@@ -53,11 +56,11 @@
 <div class="menu top">Contact</div>
 <div class="menu left">About</div>
 <div class="menu right">Samples</div>
-<div class="menu bottom">
-    <span>D</span>
-    <span>L</span>
-    <span>E</span>
-    <span>G</span>
+<div class="bottom">
+    <a href="#"><i class="fab fa-dribbble"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="mailto:faezeh@list.ru"><i class="fas fa-at"></i></a>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -66,22 +69,22 @@
 <script>
     let pointer = document.getElementById('pointer');
     const onMouseMove = (e) =>{
-        pointer.style.left = Math.min(e.pageX, window.innerWidth) + 'px';
-        pointer.style.top = Math.min(e.pageY, window.innerHeight-50) + 'px';
+        pointer.style.transform = "translate3d(" + e.pageX + "px," + e.pageY + "px,0px)";
     };
     document.addEventListener('mousemove', onMouseMove);
 </script>
 <script>
-    let menu = document.getElementsByClassName('menu');
+    let clickable = document.querySelectorAll('.menu, .bottom a');
     let cursor = document.getElementById('pointer');
     let item;
-    for (item in menu) {
-        menu[item].addEventListener('mouseover', function () {
+    for (item in clickable) {
+        clickable[item].addEventListener('mouseover', function () {
+            console.log('over');
             cursor.classList.remove("pointerAnimated");
             cursor.style.borderWidth = "30px";
             cursor.style.borderRadius = "30px";
         });
-        menu[item].addEventListener('mouseout', function () {
+        clickable[item].addEventListener('mouseleave', function () {
             cursor.classList.add("pointerAnimated");
             cursor.style.borderWidth = "15px";
             cursor.style.borderRadius = "15px";
