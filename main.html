@@ -13,49 +13,54 @@
 <body>
 
 <div id="pointer"></div>
+<div id="hrefClick"></div>
 
 <div class="container" id="wrap">
     <div class="tetra-container">
         <div class="tetra">
             <div class="side f1">
                 <div class="text">
-                    Hi,
-                    <br>
-                    <span class="big">I'm <em>Faezeh</em></span>
-                    <br>
-                    Front-end
-                    <br>
-                    Developer
-                    <br>
-                    UI Designer
+                    <p>
+                        Hi,
+                        <br>
+                        I'm <em class="big">Faezeh</em>
+                        <br><br>
+                        Front-end Developer
+                        <br>
+                        UI Designer
+                    </p>
                 </div>
             </div>
-<!--            <div class="side f2+"></div>-->
             <div class="side f2">
                 <div class="text">
-                    <span class="big">
-                         get in touch!
-                    </span>
+                    <p>
+                        want to get in touch?
+                    </p>
                 </div>
             </div>
             <div class="side f3">
                 <div class="text">
-                    I love creating beautiful, usable stuff
-                    & enjoy to learn through new challenges
+                    <p>
+                        <br><br><br><br>
+                        Now, I'm working as a freelance front-end developer.I try to make simple, usable UI.
+<!--                        I love creating beautiful, usable stuff & enjoy to learn through new challenges-->
+                    </p>
                 </div>
             </div>
             <div class="side f4">
                 <div class="text">
-                    hhh
+                    <p>
+                        <em class="bigger">recent projects</em>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="menu top">Contact</div>
-<div class="menu left">About</div>
-<div class="menu right">Samples</div>
+<a href="contact.html" class="menu top">Contact</a>
+<a href="about.html" class="menu left">About</a>
+<a href="samples.html" class="menu right">Samples</a>
 <div class="bottom">
     <a href="#"><i class="fab fa-dribbble"></i></a>
     <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -67,19 +72,17 @@
 <script src="rotate.js"></script>
 
 <script>
-    let pointer = document.getElementById('pointer');
-    const onMouseMove = (e) =>{
-        pointer.style.transform = "translate3d(" + e.pageX + "px," + e.pageY + "px,0px)";
-    };
-    document.addEventListener('mousemove', onMouseMove);
-</script>
-<script>
-    let clickable = document.querySelectorAll('.menu, .bottom a');
     let cursor = document.getElementById('pointer');
+
+    function moveCursor(e) {
+        cursor.style.transform = "translate3d(" + e.pageX + "px," + e.pageY + "px,0px)";
+    }
+    document.addEventListener('mousemove', moveCursor);
+    //------------------------------------------
+    let clickable = document.querySelectorAll('.menu, .bottom a');
     let item;
-    for (item in clickable) {
+    for (item in Object.values(clickable)) {
         clickable[item].addEventListener('mouseover', function () {
-            console.log('over');
             cursor.classList.remove("pointerAnimated");
             cursor.style.borderWidth = "30px";
             cursor.style.borderRadius = "30px";
@@ -89,6 +92,25 @@
             cursor.style.borderWidth = "15px";
             cursor.style.borderRadius = "15px";
         })
+    }
+    //------------------------------------------
+    let menuLinks = document.getElementsByClassName('menu');
+    let i;
+    for (i in Object.values(menuLinks)) {
+        menuLinks[i].addEventListener('click', function (event) {
+            event.preventDefault();
+            let target = this.href;
+            let cursorClickAnimator = document.getElementById('hrefClick');
+            cursorClickAnimator.style.left = event.clientX + "px";
+            cursorClickAnimator.style.top = event.clientY + "px";
+            cursorClickAnimator.classList.add('enable');
+            cursor.style.display = 'none';
+            setTimeout(function(){
+                console.log(event.clientX);
+                console.log(event.clientY);
+                window.location.href = target;
+            }, 2000)
+        });
     }
 </script>
 

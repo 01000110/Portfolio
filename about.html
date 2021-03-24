@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Know me</title>
+
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Wendy+One&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/10f7291bd9.js" crossorigin="anonymous"></script>
+</head>
+<body class="purpleBG">
+
+<div id="pointer"></div>
+
+<div class="container">
+    <div id="back" onclick="window.location.href='./main.html'"><i class="fas fa-7x fa-angle-double-left"></i></div>
+    <div class="ml3">
+      <span class="text-wrapper">
+        <span class="words">
+            Hei hei, My name is Faezeh. I graduated from Amirkabir University of Technology with a BSc in Software Engineering, september 2017.
+            \n \n
+            I've worked as a Front-End developer and UI designer since 2015 (as a freelancer).
+        </span>
+      </span>
+    </div>
+</div>
+
+<div id="footer" onclick="window.location.href='./contact.html'">
+    <p>Contact me!</p>
+    <i class="fas fa-7x fa-angle-double-right"></i>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script>
+    let cursor = document.getElementById('pointer');
+
+    function moveCursor(e) {
+        cursor.style.transform = "translate3d(" + e.pageX + "px," + e.pageY + "px,0px)";
+    }
+    document.addEventListener('mousemove', moveCursor);
+    //------------------------------------------
+    let clickable = document.querySelectorAll('#back, #footer');
+    let item;
+    for (item in Object.values(clickable)) {
+        clickable[item].addEventListener('mouseover', function () {
+            cursor.classList.remove("pointerAnimated");
+            cursor.style.borderWidth = "30px";
+            cursor.style.borderRadius = "30px";
+        });
+        clickable[item].addEventListener('mouseleave', function () {
+            cursor.classList.add("pointerAnimated");
+            cursor.style.borderWidth = "15px";
+            cursor.style.borderRadius = "15px";
+        })
+    }
+
+    // Wrap every letter in a span
+    var textWrapper = document.querySelector('.ml3 .words');
+    textWrapper.innerHTML = textWrapper.innerHTML.replace(/[\w\d\\]*[^\s]/g, "<span class='word' data-word='$&'>$&</span>");
+
+    anime.timeline({loop: false})
+        .add({
+            targets: '.ml3 .word, #back',
+            opacity: [0,1],
+            easing: "easeInOutQuad",
+            duration: 2000,
+            delay: (el, i) => 15 * (i+1)
+        });
+</script>
+</body>
+</html>
