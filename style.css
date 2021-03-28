@@ -27,6 +27,7 @@ body {
     overflow-y: visible;
     height: unset;
     min-height: 100%;
+    position: relative;
 }
 .purpleBG::-webkit-scrollbar
 {
@@ -108,8 +109,9 @@ a, a:hover {
 }
 .purpleBG .container {
     background-color: #663399;
-    padding: 100px 5vw;
-    display: inline-table;
+    padding: 100px 5vw 250px 5vw;
+    height: unset;
+    width: 90vw;
 }
 
 .tetra-container {
@@ -243,6 +245,11 @@ a, a:hover {
     font-style: normal;
     color: #FF6600;
 }
+@media screen and (max-width: 480px){
+    .menu {
+        visibility: hidden;
+    }
+}
 .menu, .menu:hover {
     color: #ffffff;
 }
@@ -278,12 +285,15 @@ a, a:hover {
     position: sticky;
     margin: 0 auto;
 }
-.bottom a {
+.bottom a, .contact a.icons {
     margin: 0 10px;
 }
 
 
 /************* sub pages ***************/
+.container.empty {
+    padding-bottom: 50vh;
+}
 .ml3 {
     position: relative;
     font-weight: 900;
@@ -313,14 +323,16 @@ a, a:hover {
 }
 
 #footer {
-    display: flex;
-    position: relative;
+    /*display: flex;*/
+    /*position: relative;*/
+    position: absolute;
+    width: 100%;
+    bottom: 0;
     background-color: #FF6600;
     height: 250px;
     text-align: center;
 }
 #footer p {
-    padding-left: 10vw;
     font-size: 4em;
 }
 #footer .fas {
@@ -332,4 +344,16 @@ a, a:hover {
     display: block;
     font-size: 0;
     line-height: 1rem;
+}
+.contact {
+    width: 100%;
+    text-align: center;
+    font-size: 4em;
+    margin-top: 0;
+}
+@media screen and (max-width: 480px) {
+    .contact {
+        margin-top: 25vh;
+        font-size: 2em;
+    }
 }

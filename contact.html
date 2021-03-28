@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <title>Know me</title>
+    <title>Contact</title>
 
     <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,29 +16,21 @@
 
 <div id="pointer"></div>
 
-<div class="container">
+<div class="container center">
     <div id="back" onclick="window.location.href='./main.html'"><i class="fas fa-7x fa-angle-double-left"></i></div>
-    <div class="ml3">
-      <span class="text-wrapper">
-        <span class="words">
-            Hei hei, My name is Faezeh. I graduated from Amirkabir University of Technology with a BSc in Software Engineering, september 2017.
-            \n \n
-            I've worked as a Front-End developer and UI designer since 2015 (as a freelancer).
-            \n
-            I use:
-            \n
-            - HTML, CSS, JavaScript/jQuery, Php, SQL \n
-            - Bootstrap, Tailwind CSS, Laravel, ... \n
-            - Git/GitHub \n
-            - Adobe XD, Sketch, Adobe Photoshop, Adobe Illustrator, Adobe AfterEffects, Adobe Premiere
-        </span>
-      </span>
-    </div>
-</div>
+    <div class="contact">
+        <p>
+            email: <a href="mailto:faezeh@list.ru">faezeh@list.ru</a>
+        </p>
+        <p>
+            Phone: <a href="tel:+4797346241">+47 973 46 241</a>
+        </p>
 
-<div id="footer" onclick="window.location.href='./contact.html'">
-    <p>Contact me!</p>
-    <i class="fas fa-7x fa-angle-double-right"></i>
+        <a class="icons" href="https://dribbble.com/01000110"><i class="fab fa-dribbble"></i></a>
+        <a class="icons" href="https://www.linkedin.com/in/fazi-yousefian"><i class="fab fa-linkedin-in"></i></a>
+        <a class="icons" href="https://github.com/01000110"><i class="fab fa-github"></i></a>
+
+    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
@@ -50,7 +42,7 @@
     }
     document.addEventListener('mousemove', moveCursor);
     //------------------------------------------
-    let clickable = document.querySelectorAll('#back, #footer');
+    let clickable = document.querySelectorAll('#back, #footer, a');
     let item;
     for (item in Object.values(clickable)) {
         clickable[item].addEventListener('mouseover', function () {
@@ -64,19 +56,6 @@
             cursor.style.borderRadius = "15px";
         })
     }
-
-    // Wrap every letter in a span
-    var textWrapper = document.querySelector('.ml3 .words');
-    textWrapper.innerHTML = textWrapper.innerHTML.replace(/[\w\d\\]*[^\s]/g, "<span class='word' data-word='$&'>$&</span>");
-
-    anime.timeline({loop: false})
-        .add({
-            targets: '.ml3 .word, #back',
-            opacity: [0,1],
-            easing: "easeInOutQuad",
-            duration: 2000,
-            delay: (el, i) => 15 * (i+1)
-        });
 </script>
 </body>
 </html>
