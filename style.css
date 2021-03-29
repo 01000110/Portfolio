@@ -50,6 +50,53 @@ a, a:hover {
     cursor: inherit;
 }
 
+#mobileMenu button {
+    border: unset;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 30px;
+    position: fixed;
+    left: 45%;
+    top: 15px;
+    color: #FF6600;
+}
+#mobileMenu button:nth-child(2) {
+    background-color: #FF6600;
+    color: white;
+    z-index: 101;
+}
+#mobileMenu ul {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    background-color: white;
+    z-index: 100;
+    overflow: hidden;
+    text-align: center;
+    list-style: none;
+    padding: 80px 0;
+    font-size: 2em;
+    line-height: 5rem;
+    color: #FF6600;
+}
+#mobileMenu .bottom {
+    z-index: 101;
+    color: #FF6600;
+    position: fixed;
+    width: 100%;
+    padding: 0;
+}
+#mobileMenu [hidden] {
+    display: none;
+    transition: display 1s;
+}
+
+
+
 #pointer {
     margin: -15px 0 0 -15px;
     height: 0;
@@ -62,6 +109,11 @@ a, a:hover {
     mix-blend-mode: difference;
     pointer-events: none;
 }
+@media screen and (max-width: 480px) {
+    #pointer {
+        display: none;
+    }
+}
 @keyframes pointerAnim {
     0%      {border-width: 30px; border-radius: 30px}
     20%     {border-width: 5px; border-radius: 5px}
@@ -72,15 +124,9 @@ a, a:hover {
     animation-duration: 1s;
 }
 @keyframes clickAction {
-    /*0%      {border-width: 30px; border-radius: 30px}*/
-    /*20%     {border-width: 50px; border-radius: 50px}*/
-    /*30%     {border-width: 30px; border-radius: 30px}*/
-    /*40%     {border-width: 300px; border-radius: 300px}*/
-    /*100%    {border-width: 300px; border-radius: 300px}*/
     0%      {transform: scale(1)}
     20%     {transform: scale(3)}
     30%     {transform: scale(1.5)}
-    /*60%     {transform: scale(1000)}*/
     100%    {transform: scale(300)}
 }
 #hrefClick {
@@ -115,10 +161,22 @@ a, a:hover {
 }
 
 .tetra-container {
-    margin: 10vh auto;
+    /*margin: 10vh auto;*/
     display: block;
     height: 30em;
     width: 30em;
+
+    position: absolute;
+    top: -9999px;
+    bottom: -9888px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+}
+@media screen and (max-width: 480px){
+    .tetra-container {
+        transform: scale(0.7);
+    }
 }
 
 .tetra {
@@ -245,9 +303,9 @@ a, a:hover {
     font-style: normal;
     color: #FF6600;
 }
-@media screen and (max-width: 480px){
+@media screen and (max-width: 768px){
     .menu {
-        visibility: hidden;
+        display: none;
     }
 }
 .menu, .menu:hover {
@@ -264,7 +322,6 @@ a, a:hover {
     position: fixed;
     padding: 10px;
     text-align: center;
-    /*width: 100%;*/
 }
 .menu.top {
     top: 0;
@@ -323,8 +380,6 @@ a, a:hover {
 }
 
 #footer {
-    /*display: flex;*/
-    /*position: relative;*/
     position: absolute;
     width: 100%;
     bottom: 0;

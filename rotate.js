@@ -11,6 +11,12 @@ $(document).ready(()=>{
     setInterval(rotateTetra, 66)
 });
 $(document).mousemove(updateMousePosition);
+document.addEventListener('touchmove', updateTouchPosition);
+// Follow mouse movement
+function updateTouchPosition(e) {
+    mouseX = e.touches[0].clientX/getWidth();
+    mouseY = e.touches[0].clientY/getHeight();
+}
 // Follow mouse movement
 function updateMousePosition(e) {
     mouseX = e.pageX/getWidth();

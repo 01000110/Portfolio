@@ -14,6 +14,24 @@
 </head>
 <body>
 
+<div id="mobileMenu">
+    <button class="open" onclick="toggleMenu()"><i class="fas fa-equals fa-2x"></i></button>
+    <button class="close" hidden onclick="toggleMenu()"><i class="fas fa-times fa-2x"></i></button>
+    <ul hidden>
+        <li><a href="about.html">About</a></li>
+        <li><a href="samples.html">Samples</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+            <div class="bottom">
+                <a href="https://dribbble.com/01000110"><i class="fab fa-dribbble"></i></a>
+                <a href="https://www.linkedin.com/in/fazi-yousefian"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/01000110"><i class="fab fa-github"></i></a>
+                <a href="mailto:faezeh@list.ru"><i class="fas fa-at"></i></a>
+            </div>
+        </li>
+    </ul>
+</div>
+
 <div id="pointer"></div>
 <div id="hrefClick"></div>
 
@@ -112,6 +130,13 @@
                 window.location.href = target;
             }, 2000)
         });
+    }
+
+    function toggleMenu() {
+        let menu = document.getElementById('mobileMenu').children;
+        for (item in Object.values(menu)) {
+            menu[item].toggleAttribute('hidden');
+        }
     }
 </script>
 
