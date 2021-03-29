@@ -50,6 +50,11 @@ a, a:hover {
     cursor: inherit;
 }
 
+@media screen and (min-width: 769px){
+    #mobileMenu {
+        display: none;
+    }
+}
 #mobileMenu button {
     border: unset;
     height: 50px;
@@ -355,7 +360,6 @@ a, a:hover {
     position: relative;
     font-weight: 900;
     font-size: 3em;
-    /*max-width: 800px;*/
 }
 
 .ml3 .text-wrapper {
